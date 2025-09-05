@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Apple Website</title>
+</head>
+
+<body class="bg-black px-30">
+  <div id="app"></div>
+  <header class="flex flex-col gap-5">
+
+
+    <div class="first-row flex justify-between items-center py-4 gray px-8 mt-5 rounded-full">
+      <ul class="flex gap-10 font-bold font-color">
+        <li><a class="hover:text-white duration-300" href="./admin.html">Campaigns</a></li>
+        <li><a class="hover:text-white duration-300" href="./admin.html">Corporate sales</a></li>
+        <li><a class="hover:text-white duration-300" href="./admin.html">Stores</a></li>
+        <li><a class="hover:text-white duration-300" href="./admin.html">Monthly payment</a></li>
+        <li><a class="hover:text-white duration-300" href="./admin.html">Active contracts</a></li>
+        <li><a class="hover:text-white duration-300" href="./admin.html">Other</a></li>
+      </ul>
+      <div class="text-white">
+        <i class="ri-sun-fill text-xl cursor-pointer hover:text-black duration-300"></i>
+      </div>
+    </div>
+
+    <div class="second-row flex items-center">
+      <div class="logo cursor-pointer ">
+        <img class="object-cover rounded-full h-13 w-35"
+          src="https://framerusercontent.com/images/4tEnqI11EY3FiWG2LVHcVapdies.png?scale-down-to=1024" alt="">
+      </div>
+      <div class="catalog text-white text-xl gray px-5 py-3 mr-3 ml-3 rounded-full cursor-wait">
+        <i class="ri-function-line"></i> <span class="font-bold">Catalog</span>
+      </div>
+      <div class="search gray rounded-full px-5 py-3 flex justify-between w-279 items-center">
+        <input type="text" placeholder="Search..." class="  font-color   text-xl focus:outline-none" />
+        <i class="ri-search-2-line text-xl font-color"></i>
+      </div>
+      <div class="btns flex gap-2 ml-auto">
+        <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-wait">
+          <i class="ri-scales-line"></i>
+        </button>
+        <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-pointer">
+          <a href="./cart.html"><i class="ri-shopping-cart-2-line"></i></a>
+        </button>
+        <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-wait">
+          <i class="ri-heart-2-line"></i>
+        </button>
+        <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-pointer">
+          <a href="./login.html"><i class="ri-user-3-line"></i></a>
+        </button>
+      </div>
+    </div>
+
+  </header>
+
+
+  <main>
+    <div class=" flex items-center justify-center mt-5">
+      <!-- Swiper container -->
+      <div class="swiper h-[660px]">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="w-full h-full object-cover rounded-4xl"
+              src="https://images.hdqwalls.com/download/yoho-national-park-field-canada-7d-1920x1080.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img class="w-full h-full object-cover rounded-4xl"
+              src="https://images.hdqwalls.com/download/una-dagestan-russia-aa-1920x1080.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img class="w-full h-full object-cover rounded-4xl"
+              src="https://images.hdqwalls.com/download/beautiful-green-landscape-gv-1920x1080.jpg" alt="">
+          </div>
+        </div>
+
+        <!-- Prev düyməsi -->
+        <div class="swiper-button-prev w-14 h-14 flex items-center justify-center 
+           rounded-full bg-white/90 shadow-lg hover:bg-white transition 
+           absolute top-1/2 -translate-y-1/2 -left-8 z-10">
+          <i class="ri-arrow-left-s-line text-3xl text-gray-800"></i>
+        </div>
+
+        <!-- Next düyməsi -->
+        <div class="swiper-button-next w-14 h-14 flex items-center justify-center 
+           rounded-full bg-white/90 shadow-lg hover:bg-white transition 
+           absolute top-1/2 -translate-y-1/2 -right-8 z-10">
+          <i class="ri-arrow-right-s-line text-3xl text-gray-800"></i>
+        </div>
+      </div>
+    </div>
+    <section class=" py-6 ">
+      <div class=" gap-6 flex justify-between">
+
+
+
+
+        <!-- Card -->
+        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+          <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
+            <i class="ri-speed-up-line text-white text-5xl"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
+            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+          </div>
+        </div>
+        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+          <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
+            <i class="ri-speed-up-line text-white text-5xl"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
+            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+          </div>
+        </div>
+        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+          <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
+            <i class="ri-speed-up-line text-white text-5xl"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
+            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+          </div>
+        </div>
+        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+          <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
+            <i class="ri-speed-up-line text-white text-5xl"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
+            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </section>
+
+    <p class="text-xl font-bold text-gray-400 mt-20 mb-1">Bestsellers</p>
+    <h1 class="text-3xl font-bold text-white">These products are everyone's favorite!</h1>
+
+    <section id="products" class="products grid grid-cols-4 gap-4 mt-13 mb-10">
+
+      <div id="loading" class="justify-center items-center my-6 hidden">
+        <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <span class="ml-3 text-blue-600 font-semibold text-xl">Loading...</span>
+      </div>
+
+      <div id="error" class="text-center text-red-600 text-xl font-semibold my-6 hidden">
+        An error occurred! The server is not running.
+      </div>
+
+
+
+    </section>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollToTopBtn"
+      class="hidden cursor-pointer fixed bottom-6 right-6 bg-red-700/30 text-white hover:bg-red-700 p-2 px-3 rounded-full transition-all duration-300">
+      <i class="ri-arrow-up-double-line text-3xl"></i>
+    </button>
+
+
+  </main>
+
+  <script src=" https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

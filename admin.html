@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Admin</title>
+</head>
+
+<body class="bg-black">
+    <div id="app"></div>
+    <h1 class="text-4xl text-center text-white font-bold m-8">Admin Panel</h1>
+
+    <form id="product-form">
+        <div class="flex flex-col gap-4 mb-10 px-40 text-white text-2xl">
+            <input class="border p-2 pl-5 rounded-full" type="text" id="title" placeholder="Title" required />
+            <input class="border p-2 pl-5 rounded-full" type="text" id="price" placeholder="Price" required />
+            <input class="border p-2 pl-5 rounded-full cursor-cell" type="file" id="image" accept="image/*" required />
+
+            <button
+                class="bg-green-600 cursor-pointer hover:bg-green-800 duration-400 text-white p-2 text-2xl rounded-full"
+                type="submit">Add Product <i class="ri-add-fill"></i></button>
+        </div>
+    </form>
+
+    <div id="admin-products"></div>
+
+    <script type="module">
+        import { protectRoute } from "./src/auth.js";
+        protectRoute();
+    </script>
+
+    <script src="./src/admin.js"></script>
+
+
+</body>
+
+</html>

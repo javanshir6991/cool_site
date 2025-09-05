@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Login</title>
+</head>
+
+<body class="bg-black flex">
+    <div id="app"></div>
+    <div class="left w-1/2 h-screen">
+        <img class="object-cover relative h-full w-full"
+            src="https://images.hdqwalls.com/download/leaves-5k-uz-1920x1080.jpg" alt="">
+        <div class="logo cursor-pointer absolute top-10 left-30">
+            <img class="object-cover rounded-full h-19 w-50"
+                src="https://framerusercontent.com/images/4tEnqI11EY3FiWG2LVHcVapdies.png?scale-down-to=1024" alt="">
+        </div>
+        <h1 class="text-white text-8xl font-bold absolute bottom-40 left-30">Welcome</h1>
+        <button
+            class="bg-white cursor-pointer absolute text-2xl font-bold text-black px-9 py-3 rounded-full left-30 bottom-10">See
+            more</button>
+    </div>
+    <div class="right w-1/2 flex justify-center items-center flex-col">
+
+        <form id="loginForm" class="flex flex-col rounded-3xl gray gap-9 w-[550px] h-[500px] px-9">
+            <h1 class="text-4xl text-center text-white pt-9 font-bold">Login</h1>
+            <input type="text" id="username" placeholder="Username"
+                class="pl-5 text-xl border text-white border-gray-300 p-3 rounded-full" required>
+            <input type="password" id="password" placeholder="Password"
+                class="pl-5 text-xl border text-white border-gray-300 p-3 rounded-full" required>
+            <button
+                class="bg-[#444] text-xl mt-15 font-semibold py-3 cursor-pointer hover:bg-[#333] duration-400 text-white rounded-full">Login</button>
+            <p class="text-center text-white">Don't have an account? <a href="#"
+                    class="ml-1 text-green-500 underline font-semibold">Sign up</a></p>
+        </form>
+
+        <p id="error" class="text-red-500 text-center mt-1"></p>
+
+        <!-- Login və Logout düyməsi burda çıxacaq -->
+        <div id="navbar-auth" class="mt-1"></div>
+
+        <script type="module" src="./src/auth.js"></script>
+
+</body>
+
+</html>

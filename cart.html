@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Apple Website | Cart</title>
+</head>
+
+<body class="bg-black px-30">
+    <div id="app"></div>
+    <header class="flex flex-col gap-5">
+
+
+        <div class="first-row flex justify-between items-center py-4 gray px-8 mt-5 rounded-full">
+            <ul class="flex gap-10 font-bold font-color">
+                <li><a class="hover:text-white duration-300" href="./admin.html">Campaigns</a></li>
+                <li><a class="hover:text-white duration-300" href="./admin.html">Corporate sales</a></li>
+                <li><a class="hover:text-white duration-300" href="./admin.html">Stores</a></li>
+                <li><a class="hover:text-white duration-300" href="./admin.html">Monthly payment</a></li>
+                <li><a class="hover:text-white duration-300" href="./admin.html">Active contracts</a></li>
+                <li><a class="hover:text-white duration-300" href="./admin.html">Other</a></li>
+            </ul>
+            <div class="text-white">
+                <i class="ri-sun-fill text-xl cursor-pointer hover:text-black duration-300"></i>
+            </div>
+        </div>
+
+        <div class="second-row flex items-center">
+            <div class="logo cursor-pointer ">
+                <img class="object-cover rounded-full h-13 w-35"
+                    src="https://framerusercontent.com/images/4tEnqI11EY3FiWG2LVHcVapdies.png?scale-down-to=1024"
+                    alt="">
+            </div>
+            <div class="catalog text-white text-xl gray px-5 py-3 mr-3 ml-3 rounded-full cursor-wait">
+                <i class="ri-function-line"></i> <span class="font-bold">Catalog</span>
+            </div>
+            <div class="search gray rounded-full px-5 py-3 flex justify-between w-279 items-center">
+                <input type="text" placeholder="Search..." class="  font-color   text-xl focus:outline-none" />
+                <i class="ri-search-2-line text-xl font-color"></i>
+            </div>
+            <div class="btns flex gap-2 ml-auto">
+                <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-wait">
+                    <i class="ri-scales-line"></i>
+                </button>
+                <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-pointer">
+                    <a href="./cart.html"><i class="ri-shopping-cart-2-line"></i></a>
+                </button>
+                <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-wait">
+                    <i class="ri-heart-2-line"></i>
+                </button>
+                <button class="gray text-white text-xl rounded-full px-4 py-3 cursor-pointer">
+                    <a href="./login.html"><i class="ri-user-3-line"></i></a>
+                </button>
+            </div>
+        </div>
+
+    </header>
+    <nav class="mb-6 mt-10 flex gap-3 text-gray-400">
+        <a href="index.html" class="hover:text-white">Home page</a> » <span class="text-white">Cart</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- LEFT: Cart Items -->
+        <div class="lg:col-span-2 gray rounded-3xl px-11 py-13 shadow-lg">
+            <h1 class="text-4xl font-bold mb-15 text-white">My cart</h1>
+            <div id="cart-items" class="flex flex-col gap-6"></div>
+
+            <button
+                class="mt-10 bg-red-600 text-white cursor-pointer hover:bg-red-700 px-6 py-3 rounded-xl text-xl font-bold">
+                Confirm order
+            </button>
+        </div>
+
+        <!-- RIGHT: Overview -->
+        <div class="gray rounded-3xl p-8 shadow-lg h-fit">
+            <h2 class="text-2xl text-white font-semibold mb-6">Overview</h2>
+            <div id="cart-overview" class="flex  flex-col gap-4"></div>
+
+            <div class="mt-7 bg-[#333] px-4 py-3 rounded-xl font-bold flex justify-between text-lg">
+                <span class="font-color">Total discount</span>
+                <span class="font-color" id="cart-discount">- 0 ₼</span>
+            </div>
+
+            <div class="mt-8  text-white font-bold flex flex-col">
+                <span class="font-color text-xl">Total amount:</span>
+                <div class="">
+                    <span class="text-4xl" id="cart-total">0</span><span class="text-4xl">$</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { protectRoute } from "./src/auth.js";
+        protectRoute();
+    </script>
+
+    <script type="module" src="./src/cart.js"></script>
+
+
+</body>
+
+</html>
