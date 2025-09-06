@@ -1,33 +1,33 @@
 const CART_KEY = "cart";
 
 function renderCart() {
-    let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
-    const container = document.getElementById("cart-items");
-    const totalEl = document.getElementById("cart-total");
-    const overviewEl = document.getElementById("cart-overview"); // sağ tərəf overview
+  let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  const container = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+  const overviewEl = document.getElementById("cart-overview");
 
-    container.innerHTML = "";
-    overviewEl.innerHTML = "";
+  container.innerHTML = "";
+  overviewEl.innerHTML = "";
 
-    if (cart.length === 0) {
-        container.innerHTML = `<p class="text-xl text-gray-400">Cart is empty...</p>`;
-        overviewEl.innerHTML = `<p class="text-gray-400">No products</p>`;
-        totalEl.textContent = 0;
-        return;
-    }
+  if (cart.length === 0) {
+    container.innerHTML = `<p class="text-xl text-gray-400">Cart is empty...</p>`;
+    overviewEl.innerHTML = `<p class="text-gray-400">No products</p>`;
+    totalEl.textContent = 0;
+    return;
+  }
 
-    let total = 0;
+  let total = 0;
 
-    cart.forEach(item => {
-        const div = document.createElement("div");
-        div.className =
-            "flex items-center justify-between bg-[#333] px-4 rounded-3xl";
+  cart.forEach(item => {
+    const div = document.createElement("div");
+    div.className =
+      "flex items-center justify-between bg-[#333] px-4 rounded-3xl";
 
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
 
-        // --- Left Cart List ---
-        div.innerHTML = `
+    // --- Left Cart List ---
+    div.innerHTML = `
       <div class="flex items-center gap-4">
         <img src="${item.image}" class="w-34 h-34 mb-3 object-cover rounded-2xl">
         <div class="flex flex-col ml-2">
@@ -50,45 +50,45 @@ function renderCart() {
       </div>
     `;
 
-        // --- Overview List (sağ tərəf) ---
-        const overviewItem = document.createElement("div");
-        overviewItem.className =
-            "flex justify-between font-bold text-white text-xl border-t border-gray-500 pt-2";
-        overviewItem.innerHTML = `
+    // --- Overview List (sağ tərəf) ---
+    const overviewItem = document.createElement("div");
+    overviewItem.className =
+      "flex justify-between font-bold text-white text-xl border-t border-gray-500 pt-2";
+    overviewItem.innerHTML = `
       <span>${item.title} (${item.quantity}x)</span>
       <span>${itemTotal} $</span>
     `;
-        overviewEl.appendChild(overviewItem);
+    overviewEl.appendChild(overviewItem);
 
-        // minus
-        div.querySelector(".decrease").addEventListener("click", () => {
-            if (item.quantity > 1) {
-                item.quantity -= 1;
-            } else {
-                cart = cart.filter(p => p.id !== item.id);
-            }
-            localStorage.setItem(CART_KEY, JSON.stringify(cart));
-            renderCart();
-        });
-
-        // plus
-        div.querySelector(".increase").addEventListener("click", () => {
-            item.quantity += 1;
-            localStorage.setItem(CART_KEY, JSON.stringify(cart));
-            renderCart();
-        });
-
-        // remove
-        div.querySelector(".remove").addEventListener("click", () => {
-            cart = cart.filter(p => p.id !== item.id);
-            localStorage.setItem(CART_KEY, JSON.stringify(cart));
-            renderCart();
-        });
-
-        container.appendChild(div);
+    // minus
+    div.querySelector(".decrease").addEventListener("click", () => {
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+      } else {
+        cart = cart.filter(p => p.id !== item.id);
+      }
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCart();
     });
 
-    totalEl.textContent = total;
+    // plus
+    div.querySelector(".increase").addEventListener("click", () => {
+      item.quantity += 1;
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCart();
+    });
+
+    // remove
+    div.querySelector(".remove").addEventListener("click", () => {
+      cart = cart.filter(p => p.id !== item.id);
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCart();
+    });
+
+    container.appendChild(div);
+  });
+
+  totalEl.textContent = total;
 }
 
 // init

@@ -5,12 +5,11 @@ document.getElementById("product-form").addEventListener("submit", async e => {
     e.preventDefault();
     const title = document.getElementById("title").value;
     const price = document.getElementById("price").value;
-    const imageInput = document.getElementById("image"); // indi file input olacaq
+    const imageInput = document.getElementById("image");
 
-    // FileReader ilə şəkil base64 çevrilir
     const file = imageInput.files[0];
     if (!file) {
-        alert("Şəkil seçilməyib!");
+        alert("No image selected!");
         return;
     }
 

@@ -16,7 +16,7 @@ export async function login(username, password) {
         const data = res.data;
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data));
-        window.location.href = "index.html"; // login uğurlu oldu
+        window.location.href = "index.html";
     } catch (err) {
         if (errorEl) errorEl.textContent = err.response?.data?.message || err.message;
         else alert(err.response?.data?.message || err.message);
@@ -64,10 +64,8 @@ if (loginForm) {
     });
 }
 
-// Əgər login.html açılıb və user artıq login olubsa
 if (loginForm && localStorage.getItem("token")) {
     window.location.href = "index.html";
 }
 
-// Navbar render et
 renderNavbar();

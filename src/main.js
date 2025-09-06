@@ -5,7 +5,7 @@ const swiper = new Swiper('.swiper', {
     },
     loop: true,
 
-    effect: 'coverflow', // <<< effekt əlavə olundu
+    effect: 'coverflow',
     coverflowEffect: {
         rotate: 50,
         stretch: 0,
@@ -29,7 +29,6 @@ const swiper = new Swiper('.swiper', {
     },
 })
 const scrollBtn = document.getElementById("scrollToTopBtn");
-// scroll olduqda button göstər
 window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
         scrollBtn.classList.remove("hidden");
@@ -37,7 +36,7 @@ window.addEventListener("scroll", () => {
         scrollBtn.classList.add("hidden");
     }
 });
-// kliklə yuxarı at
+// top button
 scrollBtn.addEventListener("click", () => {
     window.scrollTo({
         top: 0,
@@ -83,12 +82,11 @@ async function loadProducts() {
         `;
         container.appendChild(div);
 
-        // səbətə əlavə
         div.querySelector(".add-to-cart").addEventListener("click", () => addToCart(p));
     });
 }
 
-// ✅ səbət funksiyası
+
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
@@ -100,7 +98,7 @@ function addToCart(product) {
     }
 
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    alert(`${product.title} səbətə əlavə olundu ✅`);
+    alert(`${product.title} Product added to cart!`);
 }
 
 loadProducts();
