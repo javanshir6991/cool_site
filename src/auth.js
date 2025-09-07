@@ -2,7 +2,7 @@
 export async function login(username, password) {
     const errorEl = document.getElementById("error");
     try {
-        const axios = (await import('axios')).default;
+        const axios = (await import("axios")).default;
         const res = await axios.post("https://dummyjson.com/auth/login", {
             username: username.trim(),
             password: password.trim()
@@ -16,7 +16,8 @@ export async function login(username, password) {
         const data = res.data;
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data));
-        window.location.href = "index.html";
+
+        window.location.href = "index.html"; // login uğurlu olanda yönləndir
     } catch (err) {
         if (errorEl) errorEl.textContent = err.response?.data?.message || err.message;
         else alert(err.response?.data?.message || err.message);
@@ -27,7 +28,7 @@ export async function login(username, password) {
 export function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    window.location.href = "login.html";
+    window.location.href = "login.html"; // çıxanda login səhifəsinə yönləndir
 }
 
 // ------------------ NAVBAR RENDER ------------------
@@ -38,10 +39,10 @@ export function renderNavbar() {
     const token = localStorage.getItem("token");
 
     if (token) {
-        navbar.innerHTML = `<button id="logoutBtn" class="bg-red-600 text-white px-4 py-2 rounded">Logout</button>`;
-        document.getElementById("logoutBtn").addEventListener("click", () => {
-            logout();
-        });
+        navbar.innerHTML = `<button id="logoutBtn" class="text-red-200 hover:text-red-600 duration-400 cursor-pointer">Log out</button>`;
+        document.getElementById("logoutBtn").addEventListener("click", logout);
+    } else {
+        navbar.innerHTML = "";
     }
 }
 
@@ -62,10 +63,11 @@ if (loginForm) {
         const password = document.getElementById("password").value;
         login(username, password);
     });
-}
 
-if (loginForm && localStorage.getItem("token")) {
-    window.location.href = "index.html";
+    // əgər artıq token varsa → index.html yönləndir
+    if (localStorage.getItem("token")) {
+        window.location.href = "index.html";
+    }
 }
 
 renderNavbar();

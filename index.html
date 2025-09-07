@@ -23,9 +23,10 @@
         <li><a class="hover:text-white duration-300" href="./admin.html">Monthly payment</a></li>
         <li><a class="hover:text-white duration-300" href="./admin.html">Active contracts</a></li>
         <li><a class="hover:text-white duration-300" href="./admin.html">Other</a></li>
+        <div id="navbar-auth"></div>
       </ul>
       <div class="text-white">
-        <i class="ri-sun-fill text-xl cursor-pointer hover:text-black duration-300"></i>
+        <i id="themeToggle" class="ri-sun-fill text-xl cursor-pointer hover:text-black duration-300"></i>
       </div>
     </div>
 
@@ -101,40 +102,40 @@
 
 
         <!-- Card -->
-        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+        <div class="gray rounded-3xl p-8 pb-15 flex flex-col gap-4 w-100">
           <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
-            <i class="ri-speed-up-line text-white text-5xl"></i>
+            <i class="ri-speed-line text-white text-4xl"></i>
           </div>
           <div>
             <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
             <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
           </div>
         </div>
-        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+        <div class="gray rounded-3xl p-8 pb-15 flex flex-col gap-4 w-100">
           <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
-            <i class="ri-speed-up-line text-white text-5xl"></i>
+            <i class="ri-article-line text-white text-4xl"></i>
           </div>
           <div>
             <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
             <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
           </div>
         </div>
-        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+        <div class="gray rounded-3xl p-8 pb-15 flex flex-col gap-4 w-100">
           <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
-            <i class="ri-speed-up-line text-white text-5xl"></i>
+            <i class="ri-thumb-up-line text-white text-4xl"></i>
           </div>
           <div>
-            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
-            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+            <h3 class="text-white font-bold text-3xl mb-1">Take care!</h3>
+            <p class="text-gray-400 text-xl font-bold">You can exchange or return within 30 days</p>
           </div>
         </div>
-        <div class="gray rounded-3xl p-8 pb-12 flex flex-col gap-4 w-100">
+        <div class="gray rounded-3xl p-8 pb-15 flex flex-col gap-4 w-100">
           <div class="w-15 h-15 flex items-center justify-center rounded-xl bg-[#333]">
-            <i class="ri-speed-up-line text-white text-5xl"></i>
+            <i class="ri-shield-check-line text-white text-4xl"></i>
           </div>
           <div>
-            <h3 class="text-white font-bold text-3xl mb-1">Fast delivery</h3>
-            <p class="text-gray-400 text-xl font-bold">Delivery within 24 hours</p>
+            <h3 class="text-white font-bold text-3xl mb-1">Security</h3>
+            <p class="text-gray-400 text-xl font-bold">Your payment information is secure</p>
           </div>
         </div>
 
@@ -172,6 +173,7 @@
   </main>
 
   <script src=" https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="./src/auth.js"></script>
   <script type="module" src="./src/main.js"></script>
 </body>
 
