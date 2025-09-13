@@ -68,7 +68,7 @@
             <h1 class="text-4xl font-bold mb-15 text-white">My cart</h1>
             <div id="cart-items" class="flex flex-col gap-6"></div>
 
-            <button
+            <button id="confirm-order"
                 class="mt-10 bg-red-600 text-white cursor-pointer hover:bg-red-700 px-6 py-3 rounded-xl text-xl font-bold">
                 Confirm order
             </button>
@@ -94,9 +94,31 @@
     </div>
 
     <script type="module">
-        import { protectRoute } from "./src/auth.js";
-        protectRoute();
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBpnYOnnGPP0cHjJfYiVkn2uQeStwWZ6pw",
+            authDomain: "apple-website-50ec0.firebaseapp.com",
+            projectId: "apple-website-50ec0",
+            storageBucket: "apple-website-50ec0.firebasestorage.app",
+            messagingSenderId: "995172838783",
+            appId: "1:995172838783:web:7cbd15ba4061e99624be4a",
+            measurementId: "G-CVYX9CLGBM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // User statusunu yoxla
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // user yoxdursa → login səhifəsinə göndər
+                window.location.href = "login.html";
+            }
+        });
     </script>
+
 
     <script type="module" src="./src/cart.js"></script>
 

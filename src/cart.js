@@ -93,3 +93,15 @@ function renderCart() {
 
 // init
 renderCart();
+
+document.getElementById("confirm-order").addEventListener("click", () => {
+  const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+
+  localStorage.setItem("checkoutCart", JSON.stringify(cart));
+
+  window.location.href = "checkout.html";
+});

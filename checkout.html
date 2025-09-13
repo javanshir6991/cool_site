@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <title>Apple Website | Checkout</title>
+</head>
+
+
+
+<body class="bg-gradient-to-br from-green-400 via-black to-gray-900 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-2xl bg-[#222] rounded-3xl shadow-2xl p-10 animate-fade-in">
+        <h1 class="text-5xl font-extrabold text-center mb-10 text-green-400 tracking-tight animate-slide-down">Checkout
+        </h1>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-white animate-slide-right">Your Cart</h2>
+            <div id="checkout-items" class="mb-4"></div>
+            <div class="text-2xl font-bold text-green-300 bg-gray-900 rounded-xl px-4 py-2 inline-block animate-pop">
+                Total: <span id="checkout-total">0</span> $</div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-white animate-slide-right">Payment Details</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <input type="text" id="card-name" placeholder="Cardholder Name"
+                    class="p-4 rounded-xl text-white text-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300"
+                    autocomplete="cc-name" />
+                <input type="tel" id="card-number" placeholder="Card Number"
+                    class="p-4 rounded-xl text-white text-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300"
+                    autocomplete="cc-number" maxlength="19" pattern="[0-9]{16}" inputmode="numeric" />
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="card-exp" placeholder="MM/YY"
+                        class="p-4 rounded-xl text-white text-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300"
+                        autocomplete="cc-exp" maxlength="5" pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" />
+                    <input type="tel" id="card-cvv" placeholder="CVV"
+                        class="p-4 rounded-xl text-white text-lg focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300"
+                        autocomplete="cc-csc" maxlength="4" pattern="[0-9]{3,4}" inputmode="numeric" />
+                </div>
+            </div>
+        </div>
+
+        <button id="confirm-order-btn"
+            class="w-full bg-gradient-to-r from-green-900 to-green-500 px-6 py-4 rounded-2xl text-2xl font-bold text-white shadow-lg cursor-pointer hover:scale-103 transition-all duration-300 animate-pop">
+            <span class="inline-block animate-bounce mr-1"><i class="ri-box-2-line"></i></span> Confirm Order
+        </button>
+    </div>
+
+    <script type="module" src="./src/checkout.js"></script>
+
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.7s ease;
+        }
+
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-down {
+            animation: slide-down 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes slide-right {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-right {
+            animation: slide-right 0.7s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+
+            60% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-pop {
+            animation: pop 0.6s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-bounce {
+            animation: bounce 1.2s infinite;
+        }
+    </style>
+</body>
+
+</html>

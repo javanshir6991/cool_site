@@ -1,56 +1,54 @@
+// Firebase import
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBpnYOnnGPP0cHjJfYiVkn2uQeStwWZ6pw",
+    authDomain: "apple-website-50ec0.firebaseapp.com",
+    projectId: "apple-website-50ec0",
+    storageBucket: "apple-website-50ec0.firebasestorage.app",
+    messagingSenderId: "995172838783",
+    appId: "1:995172838783:web:7cbd15ba4061e99624be4a",
+    measurementId: "G-CVYX9CLGBM"
+};
+
+// Init Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 // ------------------ LOGIN FUNKSİYASI ------------------
-export async function login(username, password) {
+async function login(email, password) {
     const errorEl = document.getElementById("error");
     try {
-        const axios = (await import("axios")).default;
-        const res = await axios.post("https://dummyjson.com/auth/login", {
-            username: username.trim(),
-            password: password.trim()
-        }, {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        });
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCred.user;
 
-        const data = res.data;
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data));
-
-        window.location.href = "index.html"; // login uğurlu olanda yönləndir
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "index.html"; // uğurlu login → yönləndir
     } catch (err) {
-        if (errorEl) errorEl.textContent = err.response?.data?.message || err.message;
-        else alert(err.response?.data?.message || err.message);
+        errorEl.textContent = err.message;
     }
 }
 
 // ------------------ LOGOUT FUNKSİYASI ------------------
-export function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    window.location.href = "login.html"; // çıxanda login səhifəsinə yönləndir
+function logout() {
+    signOut(auth).then(() => {
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    });
 }
 
 // ------------------ NAVBAR RENDER ------------------
-export function renderNavbar() {
+function renderNavbar() {
     const navbar = document.getElementById("navbar-auth");
     if (!navbar) return;
+    const user = localStorage.getItem("user");
 
-    const token = localStorage.getItem("token");
-
-    if (token) {
-        navbar.innerHTML = `<button id="logoutBtn" class="text-red-200 hover:text-red-600 duration-400 cursor-pointer">Log out</button>`;
+    if (user) {
+        navbar.innerHTML = `<button id="logoutBtn" class="text-red-300 hover:text-red-600 duration-400 cursor-pointer">Log out</button>`;
         document.getElementById("logoutBtn").addEventListener("click", logout);
     } else {
         navbar.innerHTML = "";
-    }
-}
-
-// ------------------ PROTECT ROUTE ------------------
-export function protectRoute() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-        window.location.href = "login.html";
     }
 }
 
@@ -59,13 +57,12 @@ const loginForm = document.getElementById("loginForm");
 if (loginForm) {
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
-        const username = document.getElementById("username").value;
+        const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        login(username, password);
+        login(email, password);
     });
 
-    // əgər artıq token varsa → index.html yönləndir
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("user")) {
         window.location.href = "index.html";
     }
 }

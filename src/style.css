@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* bütün səhifədə fərqli cursor */
+/* 2. Sadə ağ dairə */
+html,
+body {
+
+    cursor: url(https://cur.cursors-4u.net/games/gam-14/gam1340.cur), auto !important;
+
+}
+
+/* input və button-larda normal qalsın */
+input,
+textarea,
+button {
+    cursor: auto;
+}
+
 .gray {
     background-color: #2b2b2b;
 }

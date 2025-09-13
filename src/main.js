@@ -67,12 +67,12 @@ async function loadProducts() {
                 </div>
                 <h3 class="text-white font-semibold text-2xl mt-3 mb-5">${p.title}</h3>
                 <div class="line-through font-color text-xl font-bold">789.99$</div>
-                <div class="text-white font-bold text-3xl">${p.price} AZN</div>
+                <div class="text-white font-bold text-3xl">${p.price} USD</div>
 
                 <div class="flex justify-between items-center mt-6">
                     <button data-id="${p.id}" class="add-to-cart bg-[#333] flex items-center rounded-full px-5 py-3 cursor-pointer hover:bg-green-700 duration-300">
                         <i class="ri-shopping-cart-2-line text-white text-2xl"></i> 
-                        <span class="text-white font-semibold text-xl mx-3">Add to cart</span>
+                        <span class="text-white font-semibold text-xl mx-16">Add to cart</span>
                     </button>
                     <button class="rounded-full text-3xl text-white bg-[#333] p-2 px-3 cursor-pointer hover:bg-red-700 duration-300">
                         <i class="ri-heart-2-line"></i>
@@ -102,3 +102,5 @@ function addToCart(product) {
 }
 
 loadProducts();
+
+
